@@ -1,0 +1,202 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 1em;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hero Section Styles */
+#hero {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 3em;
+}
+
+#hero h1 {
+  font-size: 2.5em;
+}
+
+#hero p {
+  font-size: 1.2em;
+  margin-bottom: 2em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8em 2em;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1em;
+}
+
+/* About Section Styles */
+#about {
+  text-align: center;
+  padding: 3em;
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.image-gallery img {
+  width: 400px;
+  /* Increased size */
+  margin: 1em;
+  border-radius: 10%;
+  /* Applied 10% border radius */
+}
+
+/* Services Section Styles */
+#services {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 3em;
+}
+
+#services ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#services li {
+  margin-bottom: 1em;
+}
+
+#contact {
+  text-align: center;
+  padding: 2em;
+}
+
+#contact h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+#contact p {
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+  font-weight: bold;
+}
+
+/* Add this CSS code to your 'styles.css' file */
+
+/* Update the CSS for the form section */
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  padding: 8px 16px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 12px;
+  }
+
+  button[type="submit"] {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  #hero h1 {
+    font-size: 2em;
+  }
+
+  #hero p {
+    font-size: 1em;
+  }
+
+  .btn {
+    font-size: 0.8em;
+    margin-bottom: 1em;
+  }
+
+  .image-gallery {
+    flex-wrap: wrap;
+  }
+
+  .image-gallery img {
+    width: 100%;
+    margin: 0.5em 0;
+  }
+}

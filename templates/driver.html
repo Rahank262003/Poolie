@@ -1,0 +1,179 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Driver Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'driver.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="top-right">
+            <a class="nav-link" href="/registration">Register as driver</a>
+          </li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    {% if messages %} {% for message in messages %}
+    <div
+      class="alert alert-{{message.tags}} alert-dismissable fade show my-0 "
+      role="alert"
+    >
+      <strong>{{ message }}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %} {% endif %}
+
+    <div class="container">
+      <h1>Publish Ride</h1>
+      <form method="POST" action="/driver/">
+        {% csrf_token %}
+        <label for="registered">Have you registered as a driver?</label>
+
+        <select
+          id="registered"
+          name="registered"
+          onchange="handleRegistrationChange()"
+        >
+          <option value="" selected disabled>Select an option</option>
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+
+        <p id="prompt" style="display: none; color: red">
+          <strong>Register as Driver first.</strong>
+        </p>
+
+        <div id="options" style="display: none">
+          <div class="row">
+            <div class="col">
+              <label for="source">Source:</label>
+              <input
+                type="text"
+                id="source"
+                name="source"
+                placeholder="Enter source"
+              />
+            </div>
+            <div class="col">
+              <label for="destination">Destination:</label>
+              <input
+                type="text"
+                id="destination"
+                name="destination"
+                placeholder="Enter destination"
+              />
+            </div>
+          </div>
+
+          <label for="contactNumber">Contact Number:</label>
+          <input
+            type="text"
+            id="contactNumber"
+            name="contactNumber"
+            placeholder="Enter Contact Number"
+          />
+
+          <label for="email">Email ID:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter Email ID"
+          />
+
+          <label for="dateOfJourney">Date of Journey:</label>
+          <input
+            type="date"
+            id="dateOfJourney"
+            name="dateOfJourney"
+            placeholder="Enter Date of Journey"
+          />
+
+          <label for="timeOfJourney">Time of Journey:</label>
+          <input
+            type="time"
+            id="timeOfJourney"
+            name="timeOfJourney"
+            placeholder="Enter Time of Journey"
+          />
+
+          <label for="costPerSeat">Cost per Seat:</label>
+          <input
+            type="input"
+            id="costPerSeat"
+            name="costPerSeat"
+            placeholder="Enter Cost per Seat"
+          />
+
+          <label for="seats">Number of seats:</label>
+          <input
+            type="number"
+            id="seats"
+            name="seats"
+            placeholder="Enter number of seats"
+          />
+
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender">
+            <option value="" selected disabled>Select an option</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <br />
+        <button type="submit" id="publish-button" style="display: none">
+          Publish Ride
+        </button>
+      </form>
+    </div>
+    <footer>
+      <p>&copy; 2023 Ridesharing Web Application. All rights reserved.</p>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha384-Gn5384xqQ1aoWXA+058CbD6HHE8j+0nV0c1gIOcgYkguoowcAJRmZOmUsCJuC5Ot"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function handleRegistrationChange() {
+        var registered = document.getElementById("registered").value;
+        var prompt = document.getElementById("prompt");
+        var options = document.getElementById("options");
+        var publishButton = document.getElementById("publish-button");
+
+        if (registered === "no") {
+          prompt.style.display = "block";
+          options.style.display = "none";
+          publishButton.style.display = "none";
+        } else {
+          prompt.style.display = "none";
+          options.style.display = "block";
+          publishButton.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
